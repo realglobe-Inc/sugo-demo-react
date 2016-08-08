@@ -1,6 +1,6 @@
 {
   "name": "sugo-demo-react",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "Demo of react projects",
   "main": "shim/node",
   "scripts": {
