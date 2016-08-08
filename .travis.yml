@@ -1,24 +1,16 @@
 language: node_js
 node_js:
 - '6'
-addons:
-  firefox: "43.0"
 before_install:
 - echo "registry = https://realglobe.artifactoryonline.com/realglobe/api/npm/npm-virtual" > .npmrc
 - curl -u${NPM_USER}:${NPM_PASSWORD} "https://realglobe.artifactoryonline.com/realglobe/api/npm/auth" >> .npmrc
 - cat .npmrc
 - npm install node-sass -g
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
 install:
 - npm install
-before_script:
-- npm link .
 script:
 - ./ci/build.js
 - ./ci/test.js
-- ./ci/cover.js
-- ./ci/report.js
 after_success:
 - ./ci/travis/publish.js
 - ./ci/travis/push_scaffold.js
