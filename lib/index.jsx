@@ -1,7 +1,7 @@
 /**
  * Demo of react projects
  * @module sugo-demo-react
- * @version 1.0.0
+ * @version 1.0.1
  */
 'use strict'
 
