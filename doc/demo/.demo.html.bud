@@ -1,0 +1,28 @@
+'use strict'
+
+require('ababel-react/register')()
+
+const { markup, create } = require('breact')
+const pkg = require('../../package.json')
+const { ApDemo } = require('apeman-react-demo')
+
+module.exports = {
+  force: true,
+  mode: '444',
+  tmpl (props) {
+    return markup(ApDemo, props, [
+      create(require('./demo.component.jsx').default)
+    ])
+  },
+  data: {
+    pkg,
+    src: require.resolve('./demo.component.jsx'),
+    scripts: [
+      './demo.js'
+    ]
+  }
+}
+
+if (!module.parent) {
+  require('coz').render(__filename)
+}
